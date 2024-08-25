@@ -25,14 +25,14 @@ public class JoinService {
         */
         if (userRepository.existsByUserEmail(userDTO.getUserEmail())) {
             throw new IllegalArgumentException("すでに存在するEmailです"); // 例外処理または好きな方法で対応
+
+        } else {
+            //DTOをEntityに変換
+            UserEntity data = new UserEntity();
+            data.setUserEmail(userDTO.getUserEmail());
+            data.setPassword(bCryptPasswordEncoder.encode(userDTO.getPassword()));
+            data.setProvider(ProviderEnum.local);
+            userRepository.save(data);
         }
-
-
-        //DTOをEntityに変換
-        UserEntity data = new UserEntity();
-        data.setUserEmail(userDTO.getUserEmail());
-        data.setPassword(bCryptPasswordEncoder.encode(userDTO.getPassword()));
-        data.setProvider(ProviderEnum.local);
-        userRepository.save(data);
     }
 }
