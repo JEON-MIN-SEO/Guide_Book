@@ -33,6 +33,9 @@ public class MainController {
     @PostMapping("/joinProc")
     public String JoinProcess(UserDTO userDTO) {
         //もし加入が失敗した場合またjoinPageに戻す例外処理が必要
+
+
+
         joinService.JoinProcess(userDTO);
         return "redirect:/login";
     }
