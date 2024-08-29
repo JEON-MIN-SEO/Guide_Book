@@ -20,5 +20,7 @@ public class UserEntity {
 
     private String password;
 
+    private String lineUserId;
+
     private ProviderEnum provider;
 }
