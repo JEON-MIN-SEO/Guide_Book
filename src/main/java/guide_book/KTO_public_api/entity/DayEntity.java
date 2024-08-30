@@ -31,4 +31,9 @@ public class DayEntity {
         schedule.setDay(this);
     }
 
+    public void removeSchedule(ScheduleEntity schedule) {
+        schedules.remove(schedule);
+        schedule.setDay(null);
+    }
+
 }
