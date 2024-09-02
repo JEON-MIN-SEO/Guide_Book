@@ -10,5 +10,5 @@ import java.util.List;
 public class DayDTO {
     private Long id;
     private int dayNumber;
-    private List<ContentDTO> contentList;
+    private List<BookmarkDTO> contentList;
 }

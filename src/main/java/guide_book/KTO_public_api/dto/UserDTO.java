@@ -14,5 +14,5 @@ public class UserDTO {
 
     private ProviderEnum provider;
 
-    private String userid;
+    private String line_id;
 }

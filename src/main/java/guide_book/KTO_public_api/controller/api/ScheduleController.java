@@ -1,6 +1,5 @@
 package guide_book.KTO_public_api.controller.api;
 
-import guide_book.KTO_public_api.entity.ScheduleEntity;
 import guide_book.KTO_public_api.service.ScheduleService;
 import org.springframework.web.bind.annotation.*;
 

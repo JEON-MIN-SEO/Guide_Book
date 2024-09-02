@@ -1,7 +1,6 @@
 package guide_book.KTO_public_api.service;
 
 import guide_book.KTO_public_api.entity.DayEntity;
-import guide_book.KTO_public_api.entity.ScheduleEntity;
 import guide_book.KTO_public_api.repository.DayRepository;
 import guide_book.KTO_public_api.repository.ScheduleRepository;
 import org.springframework.stereotype.Service;
