@@ -8,8 +8,10 @@ import java.time.LocalDate;
 @Getter
 @Setter
 public class GuidebookDTO {
+    private Long id;
     private String title;
     private String destination;
     private LocalDate startDate;
     private LocalDate endDate;
+    private List<DayDTO> days;
 }

@@ -1,5 +1,6 @@
 package guide_book.KTO_public_api.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -19,21 +20,13 @@ public class DayEntity {
 
     private int dayNumber;
 
-    @ManyToOne
+    @JsonIgnore
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "guidebook_id")
     private GuidebookEntity guidebook;
 
-    @OneToMany(mappedBy = "day", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<ScheduleEntity> schedules = new ArrayList<>();
+    @Column(columnDefinition = "TEXT")
+    private String contentJson;
 
-    public void addSchedule(ScheduleEntity schedule) {
-        schedules.add(schedule);
-        schedule.setDay(this);
-    }
-
-    public void removeSchedule(ScheduleEntity schedule) {
-        schedules.remove(schedule);
-        schedule.setDay(null);
-    }
 
 }
