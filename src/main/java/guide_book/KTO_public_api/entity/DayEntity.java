@@ -6,9 +6,6 @@ import lombok.Getter;
 import lombok.Setter;
 import org.springframework.data.annotation.Id;
 
-import java.util.ArrayList;
-import java.util.List;
-
 @Entity
 @Getter
 @Setter
@@ -20,9 +17,9 @@ public class DayEntity {
 
     private int dayNumber;
 
-    @JsonIgnore
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "guidebook_id")
+    @JsonIgnore //
+    @ManyToOne(fetch = FetchType.LAZY) //（関連したEntityを実際利用する前にはロードしない）
+    @JoinColumn(name = "guidebook_id") //
     private GuidebookEntity guidebook;
 
     @Column(columnDefinition = "TEXT")

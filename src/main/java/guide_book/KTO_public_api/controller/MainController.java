@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Controller
 public class MainController {
 
-    private JoinService joinService;
+    private final JoinService joinService;
 
     public MainController (JoinService joinService) {
         this.joinService = joinService;
@@ -33,8 +33,6 @@ public class MainController {
     @PostMapping("/joinProc")
     public String JoinProcess(UserDTO userDTO) {
         //もし加入が失敗した場合またjoinPageに戻す例外処理が必要
-
-
 
         joinService.JoinProcess(userDTO);
         return "redirect:/login";
