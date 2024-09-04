@@ -15,15 +15,14 @@ public class DayEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @JoinColumn(name = "day_number")
     private int dayNumber;
 
-    @JsonIgnore //
     @ManyToOne(fetch = FetchType.LAZY) //（関連したEntityを実際利用する前にはロードしない）
-    @JoinColumn(name = "guidebook_id") //
-    private GuidebookEntity guidebook;
+    @JoinColumn(name = "guidebook_id")
+    private GuidebookEntity guidebookId;
 
-    @Column(columnDefinition = "TEXT")
+    @Column(name = "content_Json",columnDefinition = "TEXT")
     private String contentJson;
-
 
 }

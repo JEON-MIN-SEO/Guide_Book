@@ -31,7 +31,7 @@ public class JoinService {
             UserEntity data = new UserEntity();
             data.setUserEmail(userDTO.getUserEmail());
             data.setPassword(bCryptPasswordEncoder.encode(userDTO.getPassword()));
-            data.setProvider(ProviderEnum.local);
+            data.setProvider(ProviderEnum.LOCAL);
             userRepository.save(data);
         }
     }

@@ -10,6 +10,7 @@ import java.util.List;
 @Setter
 public class GuidebookDTO {
     private Long id;
+    private Long userId;
     private String title;
     private String destination;
     private LocalDate startDate;

@@ -8,7 +8,10 @@ import java.util.List;
 @Getter
 @Setter
 public class DayDTO {
+
     private Long id;
+
     private int dayNumber;
+
     private List<BookmarkDTO> contentList;
 }

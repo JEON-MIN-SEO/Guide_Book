@@ -18,24 +18,32 @@ public class GuidebookEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @ManyToOne(fetch = FetchType.LAZY) //（関連したEntityを実際利用する前にはロードしない）
+    @JoinColumn(name = "user_id")
+    private UserEntity userId;
+
+    @Column(name = "title")
     private String title;
 
+    @Column(name = "destination")
     private String destination;
 
+    @Column(name = "start_date")
     private LocalDate startDate;
 
+    @Column(name = "end_date")
     private LocalDate endDate;
 
-    @OneToMany(mappedBy = "guidebook", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "guidebooks", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<DayEntity> days = new ArrayList<>();
 
-    public void addDay(DayEntity day) {
-        days.add(day);
-        day.setGuidebook(this);
-    }
-
-    public void removeDay(DayEntity day) {
-        days.remove(day);
-        day.setGuidebook(null);
-    }
+//    public void addDay(DayEntity day) {
+//        days.add(day);
+//        day.setGuidebook(this);
+//    }
+//
+//    public void removeDay(DayEntity day) {
+//        days.remove(day);
+//        day.setGuidebook(null);
+//    }
 }

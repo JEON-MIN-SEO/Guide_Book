@@ -5,7 +5,7 @@ import guide_book.KTO_public_api.entity.BookmarkEntity;
 import guide_book.KTO_public_api.repository.BookmarkRepository;
 import org.springframework.stereotype.Service;
 
-@Service
+@Service//ブックマークについてのサービス
 public class BookmarkService {
 
     private final BookmarkRepository bookmarkRepository;
@@ -14,6 +14,7 @@ public class BookmarkService {
         this.bookmarkRepository = bookmarkRepository;
     }
 
+    //作成
     public void addBookmark(BookmarkDTO bookmarkDTO) {
         //유효성 검사 빈 값인지 확인
 
@@ -24,4 +25,6 @@ public class BookmarkService {
         bookmarkEntity.setContentId(bookmarkDTO.getContentId());
         bookmarkRepository.save(bookmarkEntity);
     }
+
+
 }
